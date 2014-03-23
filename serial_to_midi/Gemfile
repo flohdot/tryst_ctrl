@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+ruby '1.9.3'
+
+gem 'serialport' #, git: 'git@github.com:hparra/ruby-serialport.git'
+# gem 'unimidi'
+# gem 'alsa-rawmidi'
+# gem 'midi-jruby'
+# gem 'midi-winmm'
+
+gem 'midiator'

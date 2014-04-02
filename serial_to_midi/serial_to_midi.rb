@@ -13,13 +13,21 @@ sp =  SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
 
 begin
   loop do
+    triggered = false
     resp = sp.gets.chomp
     break if resp.nil?
     if resp[0].to_i > 0
       puts "trigger"
+      triggered = true
       UniMIDI::Output.open(0) { |output| output.puts(0x90, 36, 100) }
     else
-      puts "-"
+      if triggered
+        UniMIDI::Output.open(0) { |output| output.puts(0x80, 36, 200) }
+        triggered = false
+        puts 'STOP'
+      else
+        puts "-"
+      end
     end
   end
 ensure

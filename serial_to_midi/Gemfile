@@ -7,4 +7,4 @@ gem 'serialport' #, git: 'git@github.com:hparra/ruby-serialport.git'
 # gem 'midi-jruby'
 # gem 'midi-winmm'
 
-gem 'midiator'
+gem 'unimidi'
